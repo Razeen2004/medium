@@ -1,0 +1,34 @@
+.hero{
+    width: 100%;
+    height: auto;
+    background-color: #FFC017;
+    border-bottom: solid 1px #242424;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+.hero .container .left h2{
+    font-size: 106px;
+    color: #000;
+    line-height: 125px;
+    font-weight: 500;
+    font-family: "Benne", serif;
+}
+
+.hero .container .left p{
+    font-size: 24px;
+    line-height: 24px;
+    color: #242424;
+    margin-bottom: 50px;
+}
+
+.hero .container .left button{
+    width: 211px;
+    height: auto;
+    background-color: #191919;
+    padding: 10px;
+    color: #fff;
+    border-radius: 200px;
+}
