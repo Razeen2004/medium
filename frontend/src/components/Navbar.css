@@ -9,7 +9,8 @@
 }
 .container{
     width: auto;
-    min-width: 1200px;
+    min-width: 1200px !important;
+    max-width: 1200px !important;
     margin: 0px 64px;
     height: 100%;
     display: flex;

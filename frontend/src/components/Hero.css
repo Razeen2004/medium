@@ -1,4 +1,4 @@
-.hero{
+.hero {
     width: 100%;
     height: auto;
     background-color: #FFC017;
@@ -8,27 +8,74 @@
     justify-content: center;
     padding-top: 90px;
     padding-bottom: 90px;
+    position: relative;
 }
-.hero .container .left h2{
-    font-size: 106px;
+
+.hero .container .left h2 {
+    font-size: 95px;
+    letter-spacing: -2px;
     color: #000;
     line-height: 125px;
     font-weight: 500;
-    font-family: "Benne", serif;
+    font-family: "Libre Baskerville", serif;
 }
 
-.hero .container .left p{
+.hero .container .left p {
     font-size: 24px;
     line-height: 24px;
     color: #242424;
     margin-bottom: 50px;
 }
 
-.hero .container .left button{
+.hero .container .left button {
     width: 211px;
     height: auto;
     background-color: #191919;
     padding: 10px;
     color: #fff;
     border-radius: 200px;
+}
+.blink-wrapper {
+    animation-play-state: initial;
+  }
+.blink {
+    animation: blink-animation 1s  infinite alternate;
+    animation-delay: calc(random() * 5s);
+    animation-fill-mode: forwards;
+}
+
+@keyframes blink-animation {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.text-animation span{
+    font-size: 22px;
+    line-height: 22px;
+    margin: 0 1px;
+    color: #FFC017;
+    font-weight: 500;
+}
+
+ .text-animation{
+    padding: 20px 0px;
+    position: absolute;
+    right: 0;
+    width: 580px;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.text-animation .blink{
+    color: #191919;
+}
+
+.text-animation .unblink{
+    color: #191919;
 }
