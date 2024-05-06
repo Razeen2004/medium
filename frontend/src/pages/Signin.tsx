@@ -1,13 +1,26 @@
 import React from 'react'
 import { useState } from "react";
-import { SigninInput } from "../types";
-import { Link } from "react-router-dom";
-
+import { SigninInput, signinInput } from "../types";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 export const Signin = () => {
+    const navigate = useNavigate();
+
     const [signinInputField, setSigninInput] = useState<SigninInput>({
-        username: "",
+        email: "",
         password: ""
     })
+
+    const signinButton = async () => {
+      try{
+        const response = await axios.post("http://localhost:8787/api/v1/signin", signinInputField);
+        const jwt = response.data.jwt;
+        localStorage.setItem('token', jwt);
+        navigate("/dashboard")
+      }catch(e){
+        // 
+      }
+    }
   return (
     <div className="signup h-screen w-full">
       <div className="signup-popup">
@@ -17,7 +30,7 @@ export const Signin = () => {
             <LabelledInput name="Your Email" placeholder="" type={"text"} onChange={(e)=>{
                 setSigninInput({
                     ...signinInputField,
-                     username: e.target.value
+                    email: e.target.value
                 })
             }} />
             <LabelledInput name="Your Password" placeholder="" type={"password"} onChange={(e)=>{
@@ -27,7 +40,7 @@ export const Signin = () => {
                 })
             }} />
 
-            <button>
+            <button onClick={signinButton}>
                 Continue
             </button>
 
