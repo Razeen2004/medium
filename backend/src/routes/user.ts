@@ -69,6 +69,36 @@ userRouter.post('/signup', async (c) => {
 	}
 })
 
+userRouter.get('/user' , async (c) => {
+	const dbUrl = c.env.DATABASE_URL;
+	const prisma = new PrismaClient({
+		datasourceUrl: dbUrl,
+	}).$extends(withAccelerate())
+
+	const SECRET_KEY = c.env.JWT_SECRET;
+
+	const header = await c.req.header("authorization") || "";
+	const response = await verify(header, SECRET_KEY);
+	try{
+		const userRes = await prisma.user.findUnique(
+			{
+				where: {
+					id: Number(response.id),
+				},
+				select: {
+					name: true,
+					email: true,
+				}
+			}
+		)
+		return c.json({
+			user: userRes
+		})
+	}catch(e){
+		return console.log(e)
+	}
+})
+
 userRouter.get('/users', async (c) => {
 	const dbUrl = c.env.DATABASE_URL;
 	const prisma = new PrismaClient({

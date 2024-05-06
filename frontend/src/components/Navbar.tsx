@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import "./Navbar.css";
 import Logo from "./assets/Logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
+
   return (
     <div className="navbar">
       <div className="container">
@@ -13,8 +17,8 @@ const Navbar = () => {
             <li><Link to="/">Our Story</Link></li>
             <li><Link to="/">Membership</Link></li>
             <li><Link to="/">Write</Link></li>
-            <li><Link to="/signin">Sign in</Link></li>
-            <li><Link to="/signup" className="get-started">Get started</Link></li>
+            {token ? "" : <li><Link to="/signin">Sign in</Link></li>}
+            <li><Link to={token ? "/dashboard" : "/signup"} className="get-started">{token ? "Dashboard" : "Get started" }</Link></li>
             </ul>
         </div>
       </div>
