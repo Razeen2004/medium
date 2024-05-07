@@ -1,0 +1,26 @@
+.layout{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.layout .contain{
+    display: flex;
+    justify-content: space-evenly;
+    min-height: 100vh;
+    min-width: 1336px;
+}
+
+.layout .contain .left{
+    height: 100vh;
+    min-width: 728px;
+    padding-top: 2rem;
+}
+.layout .contain .right{
+    padding-top: 2rem;
+    height: 100vh;
+    padding-left: clamp(24px, 24px + 100vw - 1080px, 40px);
+    min-width: 368px;
+    border-left: 1px solid #F2F2F2;
+}

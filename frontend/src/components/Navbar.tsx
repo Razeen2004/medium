@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import "./Navbar.css";
 import Logo from "./assets/Logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const token = localStorage.getItem("token");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <div className="navbar">

@@ -1,0 +1,88 @@
+.blog{
+    width: 728px;
+    display: flex;
+    border-bottom: 1px solid #F2F2F2;
+}
+.blog .blog-left{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0;
+    margin: 0 24px;
+    width: 100%;
+}
+
+.blog .blog-left .author{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.blog .blog-left .author div{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-size: 14px;
+}
+
+.blog .blog-left .published{
+    font-size: 14px;
+    color: #6B6B6B;
+}
+
+.blog .blog-left .author div svg{
+    height: 30px;
+    width: 30px;
+}
+.blog .blog-left .title{
+    margin-top: 12px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.blog .blog-left .description{
+    font-size: 16px;
+    font-weight: 400;
+    color: #242424;
+}
+
+.blog .blog-left .options{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+}
+
+.blog .blog-left .options div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #6B6B6B;
+    font-size: 14px;
+}
+
+.blog .blog-left .options div svg{
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    color: #6B6B6B
+}
+
+.blog .blog-left .options div svg:hover{
+    color: #242424;
+}
+
+.blog .blog-right{
+    width: 250px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.blog .blog-right img{
+    width: 120px;
+    height: 120px;
+    background: #6B6B6B;
+}
