@@ -50,7 +50,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 14px;
+    margin-top: 12px;
 }
 
 .blog .blog-left .options div{
@@ -58,7 +58,7 @@
     align-items: center;
     gap: 10px;
     color: #6B6B6B;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .blog .blog-left .options div svg{

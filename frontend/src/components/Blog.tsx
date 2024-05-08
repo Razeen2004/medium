@@ -21,7 +21,7 @@ export const Blog = ({author, publishedDate, title, description}: BlogType) => {
                 </div>
                 <div className="description">{description?.slice(0, 100) + "..."}</div>
                 <div className="options">
-                    <div className="read">{`${Math.ceil(description.length / 100)} minutes read`} · Selected for you</div> 
+                    <div className="read">{`${Math.ceil(description.length / 100)} min read`} · Selected for you</div> 
                     <div><CiBookmarkPlus/> <PiDotsThreeLight /></div>
                 </div>
             </div>

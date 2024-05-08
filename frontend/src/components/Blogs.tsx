@@ -1,8 +1,17 @@
 import { LiaPlusSolid } from "react-icons/lia";
 import './Blogs.css';
 import { Blog } from "./Blog";
+import { useBlogs } from "../hooks";
+import { useState } from "react";
 
 export const Blogs = () => {
+    const {loading, blogs} = useBlogs();
+    console.log(blogs)
+    if(loading){
+        return(
+            <>loading</>
+        )
+    }
     return (
         <div className="blogs">
             <div className="top-bar">
@@ -13,9 +22,8 @@ export const Blogs = () => {
                 </ul>
             </div>
             <div className="blogs-container">
-                <Blog title="This is a title" description="this is the description of the blog" author="Razeen Baig" publishedDate="5 May 2024" />
-                <Blog title="This is a title" description="this is the description of the blog this is the description of the blog this is the description of the blog this is the description of the blog" author="Razeen Baig" publishedDate="5 May 2024" />
-                <Blog title="This is a title" description="this is the description of the blog" author="Razeen Baig" publishedDate="5 May 2024" />
+                
+                {blogs.map(blog=> <Blog author={blog.author.name} title={blog.title} description={blog.description} publishedDate="Now" />)}
             </div>
         </div>
     )

@@ -1,7 +1,6 @@
 import './Extras.css';
 import { CiBookmarkPlus } from "react-icons/ci";
 export const Extras = () => {
-    const icon = <CiBookmarkPlus />;
     return( 
         <div className="extras">
             <div className="extra-sec">
