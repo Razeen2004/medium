@@ -17,12 +17,14 @@ export const blogRouter = new Hono<{
 export const createBlogInput = z.object({
     title: z.string(),
     content: z.string(),
+    image: z.string(),
+
 })
 
 export const updateBlogInput = z.object({
     title: z.string(),
     content: z.string(),
-    id: z.number()
+    id: z.number(),
 })
 
 blogRouter.use('/*', async (c, next) => {
@@ -56,7 +58,8 @@ blogRouter.post('/', async (c) => {
             title: body.title,
             description: body.description,
             published: true,
-            authorId: authorId
+            image:body.image,
+            authorId: authorId,
         }
     })
 
@@ -97,7 +100,18 @@ blogRouter.get('/bulk', async (c) => {
 
     try{
         const blog = await prisma.post.findMany({
-            
+            select: {
+                id: true,
+                title: true,
+                description: true,
+                postedDate: true,
+                image:true,
+                author: {
+                    select:{
+                        name: true,
+                    }
+                }
+            }
         })
         return c.json({
             blogs: blog

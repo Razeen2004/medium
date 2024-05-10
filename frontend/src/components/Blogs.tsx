@@ -22,8 +22,7 @@ export const Blogs = () => {
                 </ul>
             </div>
             <div className="blogs-container">
-                
-                {blogs.map(blog=> <Blog author={blog.author.name} title={blog.title} description={blog.description} publishedDate="Now" />)}
+                {blogs.map(blog=> <Blog author={blog.author.name} title={blog.title} description={blog.description} publishedDate={blog.postedDate} image={blog.image} />)}
             </div>
         </div>
     )

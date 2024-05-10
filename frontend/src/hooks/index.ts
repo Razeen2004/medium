@@ -3,18 +3,19 @@ import axios from "axios";
 import { BACKEND_URL } from "../config";
 
 
-interface Blog{
+export interface Blog{
     "id": number;
     "title": string;
     "description": string;
     "published": boolean;
-    "date": string;
+    "postedDate": string;
+    "image"?: string;
     "author": {
         "name": string
     }
 }
 
-export const useBlogs = () => {
+export const useBlogs = ({ id }:{ id: string }) => {
     const [loading, setLoading] = useState(true);
     const [blogs, setBlogs] = useState<Blog[]>([]);
     const token = localStorage.getItem("token");
