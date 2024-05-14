@@ -55,7 +55,8 @@
     gap: 26px
 }
 
-.login-navbar .login-right .write{
+.login-navbar .login-right .write,
+.login-navbar .login-right .write a{
     display: flex;
     align-items: center;
     justify-content: center;

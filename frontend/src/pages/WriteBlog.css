@@ -1,0 +1,84 @@
+.write-blog{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.write-blog .login-navbar{
+    width: 100%;
+}
+
+.write-blog .write-container{
+    width: 700px;
+    padding-top: 50px;
+}
+
+.write-blog .write-container .top{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.write-blog .write-container .top input{
+    border: none;
+    outline: none;
+    color: #b3b3b1;
+}
+
+.write-blog .write-container .top input:nth-child(1){
+    font-size: 42px;
+    color: #242424;
+}
+
+.write-blog .write-container .top textarea{
+    font-size: 21px;
+    height: 300px;
+}
+
+
+.write-blog .write-container .top textarea:focus,
+.write-blog .write-container .top input:focus{
+    outline: none;
+}
+
+.write-blog .write-container .bottom{
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+    font-size: 22px;
+    color: #b3b3b1;
+}
+
+.write-blog .write-container .bottom .f-left{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.write-blog .write-container .bottom div{
+    width: 50%;
+    height: 130px;
+}
+
+.write-blog .write-container .bottom div img{
+    height: 130px;
+    width: 130px;
+    float: right;
+    object-fit: contain;
+}
+
+.write-blog .write-container .bottom input{
+    font-size: 14px;
+    border: none;
+    color: #242424;
+}
+
+.write-blog .write-container .bottom button{
+    width: max-content;
+    padding: 5px 20px;
+    height: auto;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    background-color: #1a8917;
+}

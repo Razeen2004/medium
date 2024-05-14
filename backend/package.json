@@ -4,18 +4,29 @@
     "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
+    "@hono-storage/core": "^0.0.12",
+    "@hono-storage/node-disk": "^0.0.13",
     "@prisma/client": "^5.13.0",
     "@prisma/extension-accelerate": "^1.0.0",
     "@types/bcrypt": "^5.0.2",
     "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.12.11",
     "bcryptjs": "^2.4.3",
+    "buffer": "^6.0.3",
+    "Buffer": "^0.0.0",
+    "cloudflare-kv": "^2.0.3",
+    "cloudflare-workers-kv": "^1.0.0",
+    "fs": "^0.0.1-security",
+    "fs-extra": "^11.2.0",
     "hono": "^4.2.2",
+    "multer": "^1.4.5-lts.1",
     "prisma": "^5.13.0",
     "typescript": "^5.4.5",
     "zod": "^3.22.4"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240403.0",
+    "@types/multer": "^1.4.11",
     "wrangler": "^3.53.1"
   }
 }

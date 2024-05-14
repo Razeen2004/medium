@@ -3,17 +3,18 @@ import { VscComment } from "react-icons/vsc";
 import { CiBookmarkPlus } from "react-icons/ci";
 import { PiDotsThreeLight } from "react-icons/pi";
 import { Blog } from "../hooks";
-export const FullBlog = ({blogs}: {blogs: Blog}) =>{
+export const FullBlog = ({author, title, desc, image, date}: any) =>{
+    
     return(
         <div className="singleBlog-container">
                 <div className="blog-main">
                     <div className="blog-title">
-                        <h2>{blogs.title}</h2>
+                        <h2>{title}</h2>
                     </div>
                     <div className="blog-author">
                         <div className="avatar">RA</div>
                         <div className="desc">
-                            <div className="name">{blogs.author.name || "Anonymous"}</div>
+                            <div className="name">{author || "Anonymous"}</div>
                             <div className="read-time">8 mins read</div>
                         </div>
                     </div>
@@ -28,10 +29,10 @@ export const FullBlog = ({blogs}: {blogs: Blog}) =>{
                         </div>
                     </div>
                     <div className="blog-image">
-                        <img src={blogs.image} alt="" />
+                        <img src={image} alt="" />
                     </div>
                     <div className="blog-desc">
-                        <p>{blogs.description}</p>
+                        <p>{desc}</p>
                     </div>
                 </div>
             </div>

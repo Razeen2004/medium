@@ -8,23 +8,33 @@ import { PiBookmarksSimpleThin } from "react-icons/pi";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-export const LoginNavbar = () => {
+import { BACKEND_URL } from '../config';
+
+interface Write{
+    isWriting?: boolean;
+}
+export const LoginNavbar = ({isWriting}:Write) => {
+
     const navigate = useNavigate();
     const [openProfilePopup, setProfilePopup] = useState(false);
     const [name,setName] = useState("??");
     const userName = name.split('');
     const [userEmail, setUserEmail] = useState("");
+    const [loading, setLoading] = useState(true);
     useEffect(()=>{
         const token = localStorage.getItem("token");
         if(!token){
             navigate('/signin');
         }
         const getUserData = async () => {
-            const response = await axios.get("http://localhost:8787/api/v1/user",{
+            const response = await axios.get(`${BACKEND_URL}/api/v1/user`,{
                 headers: {
                     Authorization: `${token}`
                 }
             });
+            if(response){
+                setLoading(false);
+            }
             const userName = await response.data.user.name;
             setName(userName)
             const mail = response.data.user.email;
@@ -50,6 +60,36 @@ export const LoginNavbar = () => {
         navigate('/');
     }
 
+    if(loading){
+        return (
+            <>
+            <div className="login-navbar">
+                <div className="login-left">
+                    <Link className='skeleton skeleton-text skeleton-text__body' to="/"><img src="" alt="" />DSADAS</Link>
+                    <div className='search skeleton skeleton-text skeleton-text__body'>
+                        dsadasdasdasd
+                    </div>
+                </div>
+                <div className="login-right">
+                    {isWriting ? "" : (
+                        <>
+                        <div className="write skeleton skeleton-text skeleton-text__body">
+                            dsadasd
+                        </div>
+                        <div className="notification skeleton skeleton-text skeleton-text__body">
+                            dsad
+                        </div>
+                    </>
+                    )}
+                    <div onClick={()=>{setProfilePopup(!openProfilePopup)}} className="profile skeleton skeleton-text skeleton-text__body">
+                        dsadasd
+                    </div>
+                </div>
+            </div>
+        </>
+        )
+    }
+
     return(
         <>
             <div className="login-navbar">
@@ -60,13 +100,19 @@ export const LoginNavbar = () => {
                     </div>
                 </div>
                 <div className="login-right">
-                    <div className="write">
-                        <TfiPencilAlt/>
-                        Write
-                    </div>
-                    <div className="notification">
-                    <IoNotificationsOutline />
-                    </div>
+                    {isWriting ? "" : (
+                        <>
+                        <div className="write">
+                            <Link to={"/write"}>
+                                <TfiPencilAlt/>
+                                Write
+                            </Link>
+                        </div>
+                        <div className="notification">
+                        <IoNotificationsOutline />
+                        </div>
+                    </>
+                    )}
                     <div onClick={()=>{setProfilePopup(!openProfilePopup)}} className="profile">
                         {userName[0]}
                         {userName[1]}

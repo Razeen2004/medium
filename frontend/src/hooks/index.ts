@@ -15,13 +15,13 @@ export interface Blog{
     }
 }
 
-export const useBlogs = ({ id }:{ id: string }) => {
+export const useBlogs = () => {
     const [loading, setLoading] = useState(true);
     const [blogs, setBlogs] = useState<Blog[]>([]);
     const token = localStorage.getItem("token");
 
     useEffect(()=>{
-        axios.get(`http://localhost:8787/api/v1/blog/bulk`,{
+        axios.get(`${BACKEND_URL}/api/v1/blog/bulk`,{
             headers:{ Authorization: token} 
         })
         .then(response =>{
@@ -33,5 +33,25 @@ export const useBlogs = ({ id }:{ id: string }) => {
     return{
         loading,
         blogs
+    }
+}
+export const useBlog = ({ id }:{ id: string }) => {
+    const [loading, setLoading] = useState(true);
+    const [blog, setBlog] = useState<Blog>();
+    const token = localStorage.getItem("token");
+
+    useEffect(()=>{
+        axios.get(`${BACKEND_URL}/api/v1/blog/${id}`,{
+            headers:{ Authorization: token} 
+        })
+        .then(response =>{
+            setLoading(false);
+            setBlog(response.data.blog);
+        })
+    },[])
+
+    return{
+        loading,
+        blog
     }
 }

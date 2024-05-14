@@ -4,13 +4,19 @@ import { withAccelerate } from '@prisma/extension-accelerate'
 import { decode, sign, verify } from 'hono/jwt'
 import z from 'zod';
 
+type Bindings = {
+    MY_BUCKET: R2Bucket;
+}
+
 export const blogRouter = new Hono<{
 	Bindings: {
 		DATABASE_URL: string,
-		JWT_SECRET: string
+		JWT_SECRET: string,
+        image: Bindings
 	},
     Variables:{
-        userId: string,
+        userId: string
+        storage: any
     }
 }>();
 
@@ -43,6 +49,45 @@ blogRouter.use('/*', async (c, next) => {
         })
 	}
 })
+
+blogRouter.get('/image', async (c) => {
+
+    try {
+        const imageData = await c.env.MY_BUCKET.get("image.png");
+    
+    if (!imageData) {
+        return new Response('No image found!', { status: 404 });
+    }
+    
+    // const blob = new Blob([imageData], { type: 'image/png' });
+    // const response = new Response(blob, { headers: { 'Content-Type': 'image/png' } });
+    const response = new Response(imageData, { headers: { 'Content-Type': 'image/png' } });
+    console.log(response)
+    return response;
+    } catch (err) {
+        console.error(err);
+        return new Response('Error retrieving image!', { status: 500 });
+    }
+  });
+
+blogRouter.post('/upload', async (c) => {
+
+    const body = await c.req.parseBody();
+    const f = body.file;
+    console.log(body)
+    let res;
+    if(f && f instanceof File){
+        console.log("Uploading the file to the R2");
+        res = await c.env.MY_BUCKET.put("image5.png", f);
+    }
+
+    return c.json({
+        res
+    })
+    
+})
+
+
 
 blogRouter.post('/', async (c) => {
     const dbUrl = c.env.DATABASE_URL;
@@ -136,6 +181,18 @@ blogRouter.get('/:id', async (c) => {
         const blog = await prisma.post.findFirst({
             where: {
                 id: id
+            },
+            select: {
+                id: true,
+                title: true,
+                description: true,
+                postedDate: true,
+                image:true,
+                author: {
+                    select:{
+                        name: true,
+                    }
+                }
             }
         })
         return c.json({

@@ -70,3 +70,45 @@
 .blogs .blogs-container{
     padding: 1rem 0px;
 }
+.skeleton {
+    border: none;
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+
+.skeleton:hover{
+  color: rgba(0,0,0,0.0) !important;
+}
+  
+  @keyframes skeleton-loading {
+    0% {
+      background-color: hsl(4,  33%, 97%);
+    }
+    100% {
+      background-color: hsl(0, 0%, 90%);
+    }
+  }
+  
+  .skeleton-text {
+    width: auto;
+    height: auto;
+    margin-bottom: 0.5rem;
+    color: rgba(0,0,0,0) !important;
+  }
+
+  .skeleton-text:hover,
+  .skeleton-text svg:hover{
+    color: rgba(0,0,0,0) !important;
+  }
+
+  .skeleton-text svg{
+    color: rgba(0,0,0,0) !important;
+
+  }
+  
+  .skeleton-text__body {
+    width: auto;
+  }
+  
+  .skeleton-footer {
+    width: auto;
+  }

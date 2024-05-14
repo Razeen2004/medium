@@ -2,7 +2,9 @@ import { PiUserCircleLight } from "react-icons/pi";
 import './Blog.css'
 import { CiBookmarkPlus } from "react-icons/ci";
 import { PiDotsThreeLight } from "react-icons/pi";
+import { Link } from "react-router-dom";
 interface BlogType{
+    id: number;
     author?: string;
     publishedDate?: any;
     title?: string;
@@ -11,7 +13,7 @@ interface BlogType{
 }
 
 
-export const Blog = ({author, publishedDate, title, description, image}:BlogType) => {
+export const Blog = ({author, publishedDate, title, description, image, id}:BlogType) => {
     // Calculate the difference in milliseconds
     const now = Date.now(); // Get current timestamp in milliseconds
     const postedDateInMs = new Date(publishedDate).getTime();
@@ -52,7 +54,9 @@ function formatTimeDifference(ms:any):any {
                     <div><PiUserCircleLight />{author}</div> <div className="published"> · {timeSinceUpload}</div>
                 </div>
                 <div className="title">
+                  <Link to={`/blog/${id}`}>
                     {title}
+                  </Link>
                 </div>
                 <div className="description">{description?.slice(0, 100) + "..."}</div>
                 <div className="options">
@@ -61,7 +65,9 @@ function formatTimeDifference(ms:any):any {
                 </div>
             </div>
             <div className="blog-right">
-                <img src={image} alt="" />
+              <Link to={`/blog/${id}`}>
+                <img className="" src={image} alt="" />
+              </Link>
             </div>
         </div>
     )

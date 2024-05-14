@@ -3,6 +3,7 @@ import { useState } from "react";
 import { SigninInput, signinInput } from "../types";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BACKEND_URL } from '../config';
 export const Signin = () => {
     const navigate = useNavigate();
 
@@ -13,7 +14,7 @@ export const Signin = () => {
 
     const signinButton = async () => {
       try{
-        const response = await axios.post("http://localhost:8787/api/v1/signin", signinInputField);
+        const response = await axios.post(`${BACKEND_URL}/api/v1/signin`, signinInputField);
         const jwt = response.data.jwt;
         localStorage.setItem('token', jwt);
         navigate("/dashboard")

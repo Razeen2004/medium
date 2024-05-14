@@ -3,6 +3,7 @@ import "./Auth.css";
 import { SignupInput } from "../types";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { BACKEND_URL } from "../config";
 
 export const Signup = () => {
 
@@ -16,7 +17,7 @@ export const Signup = () => {
 
     const signupBtn = async () => {
         try{
-            const response = await axios.post("http://localhost:8787/api/v1/signup",signupInputField)
+            const response = await axios.post(`${BACKEND_URL}/api/v1/signup`,signupInputField)
             const jwt = response.data.jwt;
             localStorage.setItem("token", jwt);
             navigate('/dashboard');
