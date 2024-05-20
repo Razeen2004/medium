@@ -50,42 +50,40 @@ blogRouter.use('/*', async (c, next) => {
 	}
 })
 
-blogRouter.get('/image', async (c) => {
+// blogRouter.get('/image', async (c) => {
 
-    try {
-        const imageData = await c.env.MY_BUCKET.get("image.png");
+//     try {
+//         const imageData = await c.env.MY_BUCKET.get("image.png");
     
-    if (!imageData) {
-        return new Response('No image found!', { status: 404 });
-    }
+//     if (!imageData) {
+//         return new Response('No image found!', { status: 404 });
+//     }
     
-    // const blob = new Blob([imageData], { type: 'image/png' });
-    // const response = new Response(blob, { headers: { 'Content-Type': 'image/png' } });
-    const response = new Response(imageData, { headers: { 'Content-Type': 'image/png' } });
-    console.log(response)
-    return response;
-    } catch (err) {
-        console.error(err);
-        return new Response('Error retrieving image!', { status: 500 });
-    }
-  });
+//     const response = new Response(imageData, { headers: { 'Content-Type': 'image/png' } });
+//     console.log(response)
+//     return response;
+//     } catch (err) {
+//         console.error(err);
+//         return new Response('Error retrieving image!', { status: 500 });
+//     }
+//   });
 
-blogRouter.post('/upload', async (c) => {
+// blogRouter.post('/upload', async (c) => {
 
-    const body = await c.req.parseBody();
-    const f = body.file;
-    console.log(body)
-    let res;
-    if(f && f instanceof File){
-        console.log("Uploading the file to the R2");
-        res = await c.env.MY_BUCKET.put("image5.png", f);
-    }
+//     const body = await c.req.parseBody();
+//     const f = body.file;
+//     console.log(body)
+//     let res;
+//     if(f && f instanceof File){
+//         console.log("Uploading the file to the R2");
+//         res = await c.env.MY_BUCKET.put("image5.png", f);
+//     }
 
-    return c.json({
-        res
-    })
+//     return c.json({
+//         res
+//     })
     
-})
+// })
 
 
 
