@@ -2,7 +2,7 @@ import { PiHandsClappingThin } from "react-icons/pi";
 import { VscComment } from "react-icons/vsc";
 import { CiBookmarkPlus } from "react-icons/ci";
 import { PiDotsThreeLight } from "react-icons/pi";
-import { Blog } from "../hooks";
+// import { Blog } from "../hooks";
 export const FullBlog = ({author, title, desc, image, date}: any) =>{
     
     return(
@@ -15,7 +15,7 @@ export const FullBlog = ({author, title, desc, image, date}: any) =>{
                         <div className="avatar">RA</div>
                         <div className="desc">
                             <div className="name">{author || "Anonymous"}</div>
-                            <div className="read-time">8 mins read</div>
+                            <div className="read-time">8 mins read || {date} </div>
                         </div>
                     </div>
                     <div className="blog-stats">

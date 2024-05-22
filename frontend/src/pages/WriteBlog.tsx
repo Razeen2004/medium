@@ -5,8 +5,6 @@ import axios from 'axios';
 import { BACKEND_URL } from '../config';
 export const WriteBlog = () =>{
     const isWriting = true;
-    const [selectedFile, setSelectedFile] = useState(null);
-    const [imageSrc, setImageSrc] = useState('');
     // console.log(selectedFile)
     // const handleFileUpload = async (event:any) => {
     //     const file = event.target.files[0];

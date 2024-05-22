@@ -44,7 +44,8 @@ export const LoginNavbar = ({isWriting}:Write) => {
                 const parts = email.split("@");
                 // Mask the middle characters of the username (leaving first and last)
                 const maskedUsername = parts[0].replace(/^(.)(.)(.*)$/, function(match: string,$1:string, $2:string, $3:string) {
-                  return $1 + "*".repeat($2.length) + $3;
+                    match = match;
+                    return $1 + "*".repeat($2.length) + $3;
                 });
               
                 // Combine masked username with domain
