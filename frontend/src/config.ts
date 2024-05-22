@@ -1,1 +1,1 @@
-export const BACKEND_URL = "http://localhost:64636";
+export const BACKEND_URL = "https://backend.razeenbaig10.workers.dev";

@@ -14,7 +14,7 @@ export const Blogs = () => {
                     <ul>
                         <span className="skeleton skeleton-text skeleton-text__body">< LiaPlusSolid /></span>
                         <li className="skeleton skeleton-text skeleton-text__body">For you</li>
-                        <li className="skeleton skeleton-text skeleton-text__body">Following</li>
+                        {/* <li className="skeleton skeleton-text skeleton-text__body">Following</li> */}
                     </ul>
                 </div>
                 <div className="blogs-container">
@@ -84,7 +84,7 @@ export const Blogs = () => {
                         <span><LiaPlusSolid /></span>
                     </Link>
                     <li className="active">For you</li>
-                    <li className="">Following</li>
+                    {/* <li className="">Following</li> */}
                 </ul>
             </div>
             <div className="blogs-container">

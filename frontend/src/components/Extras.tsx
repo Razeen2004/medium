@@ -3,7 +3,7 @@ import { CiBookmarkPlus } from "react-icons/ci";
 export const Extras = () => {
     return( 
         <div className="extras">
-            <div className="extra-sec">
+            {/* <div className="extra-sec">
                 <h2>Recommended Topics</h2>
                 <div className="tags">
                     <ul>
@@ -17,7 +17,7 @@ export const Extras = () => {
                     </ul>
                     <span>See more topics</span>
                 </div>
-            </div>
+            </div> */}
             <div className="extra-sec">
                 <h2>Reading List</h2>
                 <div className="reading">
